@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+.hide1{display: none;}
+body {
+    background: url('./assets/bg.jpg') !important;
+    background-size: cover;    padding-top: 20px;
+}
+.cntr{width:100%;text-align: center;}
+.prof {
+    border-radius: 64px;
+    height: 50px;
+    width: 50px;
+    float: left;
+     border: 1px solid rgba(51, 51, 51, 0.35);
+}
+.bx {
+    float: left;
+    position: relative;
+}
+
+.ed {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    display: none;
+}
+.bx:hover{cursor: pointer;}
+.bx:hover .ed{
+    display:block !important;
+}
+.bx:hover .prof {
+    opacity: 0.5;
+}
+.bgprof{ max-width: 278px;}

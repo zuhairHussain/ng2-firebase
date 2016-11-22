@@ -1,0 +1,171 @@
+<div class="bx" data-toggle="modal" data-target="#myModalp"><img class="prof" src="assets/account.png" [src]='' id="img"/><span class="ed"><i class="material-icons right">mode_edit</i></span></div><h3 class="pull-left" id="user"></h3>
+
+<!-------------profile picturer------------>
+  <div class="modal fade" id="myModalp" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4  class="modal-title">UPLOAD PROFILE PICTURE</h4>
+        </div>
+        <div class="modal-body">
+          <img class="bgprof" src="assets/account.png" [src]='' id="img2"> 
+            <form>
+              <div class="input-field col l6 s12">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input type="file" id="filebutton" value="upload" #filebtn (change)="filebuttoni($event)">
+              </div>
+            </form>
+               
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<button  id="logout" (click)="logout()" class="btn waves-effect waves-light hide1 pull-right" type="submit" name="action" (click)="register(email,pass)">LOGOUT
+    <i class="material-icons right">power_settings_new</i>
+</button>
+
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4  class="modal-title">Create an Account</h4>
+        </div>
+        <div class="modal-body">
+          
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
+                  <input id="icon_prefix" type="text" class="validate" #email>
+                  <label for="icon_prefix">Email</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="icon_telephone" type="password" class="validate" #pass>
+                  <label for="icon_telephone">Password</label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action" (click)="register(email,pass)">REGISTER
+                <i class="material-icons right">mode_edit</i>
+              </button>
+          </form>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<br><br>
+
+
+<form id="login" class="a">
+  <div class="row">
+    <h3 class="col s12">LOGIN</h3>
+          <div class="input-field col l6 s12">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix" type="text" class="validate" #email1>
+            <label for="icon_prefix">Email</label>
+          </div>
+          <div class="input-field col l6 s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="icon_telephone" type="password" class="validate" #pass1>
+            <label for="icon_telephone">Password</label>
+         </div>
+  <div class="col s12">
+   <button class="btn waves-effect waves-light" type="submit" name="action" (click)="login(email1,pass1)">LOGIN
+    <i class="material-icons right">send</i>
+   </button>
+  </div>
+</div>
+</form>
+
+
+<div id="cnt">
+<form>
+  <div class="input-field col l6 s12">
+        <i class="material-icons prefix">star</i>
+        <input id="icon_prefix" type="text" class="validate" #new>
+       <label for="icon_prefix">Title</label>
+  </div>
+  <div class="input-field col l6 s12">
+        <i class="material-icons prefix">assignment</i>
+        <input id="icon_prefix" type="text" class="validate" #new2>
+       <label for="icon_prefix">Discription</label>
+  </div>
+
+<button (click)="sub(new,new2)" class="btn waves-effect waves-light" type="submit" name="action">SUBMIT
+    <i class="material-icons right">send</i>
+  </button>
+  <button *ngIf="true" (click)="get()" class="btn waves-effect waves-light pull-right" type="submit" name="action">GET DATA
+    <i class="material-icons right">loop</i>
+  </button>
+</form>
+
+
+
+    <ul class="collection">
+      <li class="collection-item" *ngFor="let a of ah">
+        <span class="tit">Title : {{ a.name }}</span>  
+        <span class="pull-right">
+          <button class="btn waves-effect waves-light btp" type="submit" name="action" (click)="remove(a.key,a.name)">Delete<i class="material-icons right">delete</i></button>
+           <button class="btn waves-effect waves-light btp" type="submit" name="action" (click)="update(a.key)" data-toggle="modal" data-target="#myModal">Edit<i class="material-icons right">mode_edit</i></button>
+          <span *ngIf="a.edited">Edited</span> 
+          <span>{{ a.date }}/{{ a.month }}/{{ a.year }}</span>
+        </span> 
+        <span class="dis">Description : {{ a.secname }}</span>
+      </li>
+    </ul>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4  class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          
+            <form>
+                <div class="input-field col l6 s12">
+                    <i class="material-icons prefix">star</i>
+                    <input id="icon_prefix" type="text" class="validate" #name>
+                  <label for="icon_prefix">Title</label>
+              </div>
+              <div class="input-field col l6 s12">
+                    <i class="material-icons prefix">assignment</i>
+                    <input id="icon_prefix" type="text" class="validate" #sec>
+                  <label for="icon_prefix">Discription</label>
+              </div>
+            <button (click)="update2(name,sec)" data-dismiss="modal">Submit</button>
+            </form>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id="fb">
+  <img src="./assets/fb.png" class="img-responsive cp" (click)="signfb()">
+  <p class="par"><b>Note:</b> First click on orange add button at bottom to create an account or sign in with facebook.</p>
+</div>
+
+  <div id="register" class="row hide1">
+   <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" data-toggle="modal" data-target="#myModal2">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+  </div>
+
+
